@@ -87,6 +87,7 @@ class CraftUKCrimeStatsTwigExtension extends \Twig_Extension
             'crimesatlocationid' => '/api/crimes-at-location?date=%s&location_id=%s',
             'crimesatlocationpoint' => '/api/crimes-at-location?date=%s&lat=%s&lng=%s',
             'crimesnolocation' => '/api/crimes-no-location?category=%s&force=%s&date=%s',
+            'categories' => '/api/crime-categories?date=%s',
             'crimeoutcomes' => '/api/outcomes-for-crime/%s',
             'neighbourhoods' => '/api/%s/neighbourhoods',
             'neighbourhood' => '/api/%s/%s',
@@ -243,6 +244,13 @@ class CraftUKCrimeStatsTwigExtension extends \Twig_Extension
                 $defaults = [
                     'category' => 'all-crime',
                     'force' => 'leicestershire',
+                    'month' => date('Y-m', strtotime('-1 month'))
+                ];
+                $options = $this->createOptions($defaults, $params);
+                $url = $this->createUrl(strtolower($name), $options);
+                break;
+            case 'categories': 
+                $defaults = [
                     'month' => date('Y-m', strtotime('-1 month'))
                 ];
                 $options = $this->createOptions($defaults, $params);

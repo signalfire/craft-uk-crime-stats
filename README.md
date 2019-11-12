@@ -36,6 +36,7 @@ A function with params would look something like...
 | crimesatlocationid      | date, location            | https://data.police.uk/docs/method/crimes-at-location/       |
 | crimesatlocationpoint   | date,lat,lng              | https://data.police.uk/docs/method/crimes-at-location/       |
 | crimesnolocation        | category, force, month    | https://data.police.uk/docs/method/crimes-no-location/       |
+| categories              | month                     | https://data.police.uk/docs/method/crime-categories/         |
 | crimeoutcomes           | id                        | https://data.police.uk/docs/method/outcomes-for-crime/       |
 | neighbourhoods          | force                     | https://data.police.uk/docs/method/neighbourhoods/           |
 | neighbourhood           | force, id                 | https://data.police.uk/docs/method/neighbourhood/            |
