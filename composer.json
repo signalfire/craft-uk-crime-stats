@@ -1,0 +1,38 @@
+{
+  "name": "signalfire/craft-uk-crime-stats",
+  "description": "CraftCMS plugin to display UK crime stats",
+  "version": "1.0.0",
+  "type": "craft-plugin",
+  "keywords": ["uk crime", "craftcms"],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,  
+  "authors": [
+    {
+      "name": "Robert Coster",
+      "homepage": "https://signalfire.co.uk"
+    }
+  ],
+  "support": {
+    "email": "rob@signalfire.co.uk",
+    "issues": "https://github.com/signalfire/craft-uk-crime-stats/issues?state=open",
+    "source": "https://github.com/signalfire/craft-uk-crime-stats",
+    "docs": "https://github.com/signalfire/craft-uk-crime-stats/blob/master/README.md"
+  },
+  "require": {
+    "craftcms/cms": "^3.1.0"  
+  },
+  "autoload": {
+    "psr-4": {
+      "signalfire\\craftukcrimestats\\": "src/"
+    }
+  },
+  "extra": {
+    "handle": "craft-uk-crime-stats",
+    "name": "craft-uk-crime-stats",
+    "hasCpSettings": false,
+    "hasCpSection": false,
+    "documentationUrl": "https://github.com/signalfire/craft-uk-crime-stats/blob/master/README.md",
+    "class": "signalfire\\craftukcrimestats\\CraftUKCrimeStats"
+  } 
+}
