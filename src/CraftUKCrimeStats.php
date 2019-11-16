@@ -10,6 +10,8 @@ namespace signalfire\craftukcrimestats;
 
 use craft\base\Plugin;
 use signalfire\craftukcrimestats\twig\CraftUKCrimeStatsTwigExtension;
+use signalfire\craftukcrimestats\services\CraftUKCrimeStatsService;
+
 use Craft;
 
 /**
@@ -19,8 +21,6 @@ use Craft;
 */
 class CraftUKCrimeStats extends Plugin
 {
-    public static $plugin;
-
     /**
      * Initialization
      * 
@@ -30,7 +30,9 @@ class CraftUKCrimeStats extends Plugin
     {
         parent::init();
 
-        self::$plugin = $this;
+        $this->setComponents([
+            'ukcrimestatsservice' => CraftUKCrimeStatsService::class,
+        ]);
 
         if (Craft::$app->request->getIsSiteRequest()) {
             $extension = new CraftUKCrimeStatsTwigExtension();
