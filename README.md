@@ -51,5 +51,17 @@ A function with params would look something like...
 | stopsearchnolocation    | force, month              | https://data.police.uk/docs/method/stops-no-location/        |
 | stopsearchforce         | force, month              | https://data.police.uk/docs/method/stops-force/              |
 
-Plugin caches data for a period of 1 hour. The https://data.police.uk endpoint will not be hit for 1 hour after first
-connection.
+Plugin caches data for a period of 1 hour. 
+
+To get a reference to the services class powering the twig extension elsewhere (in your own class for example) 
+you'd need to add a use reference and then call the getPoliceAndCrimeData method on ukcrimestatsservice as below...
+
+```
+use signalfire\craftukcrimestats\CraftUKCrimeStats;
+
+CraftUKCrimeStats::getInstance()
+  ->ukcrimestatsservice
+  ->getPoliceAndCrimeData($name, $params, $method);
+
+```
+
