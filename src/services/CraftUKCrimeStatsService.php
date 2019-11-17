@@ -11,6 +11,7 @@ namespace signalfire\craftukcrimestats\services;
 use yii\base\Component;
 
 use Craft;
+use signalfire\craftukcrimestats\CraftUKCrimeStats;
 
 /**
 * @author  Robert Coster
@@ -31,8 +32,8 @@ class CraftUKCrimeStatsService extends Component
     private function makeRequest(string $method, string $endpoint, array $data = []) : array
     {
         $client = new \GuzzleHttp\Client([
-            'base_uri' => 'https://data.police.uk',
-            'timeout' => 10      
+            'base_uri' => CraftUKCrimeStats::getInstance()->getSettings()->base,
+            'timeout' => CraftUKCrimeStats::getInstance()->getSettings()->timeout      
         ]);
 
         try{
@@ -147,7 +148,7 @@ class CraftUKCrimeStatsService extends Component
             return Craft::$app->cache->get($key);
         }else{
             $response = $this->makeRequest($method, $url);
-            Craft::$app->cache->set($key, $response, 3600);  
+            Craft::$app->cache->set($key, $response, CraftUKCrimeStats::getInstance()->getSettings()->cache);  
             return $response;
         }
     }

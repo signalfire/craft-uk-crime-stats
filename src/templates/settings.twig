@@ -1,0 +1,20 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    first: true,
+    label: "API Base URL",
+    name: 'base',
+    value: settings.base
+}) }}
+
+{{ forms.textField({
+    label: "API Timeout (seconds)",
+    name: 'timeout',
+    value: settings.timeout
+}) }}
+
+{{ forms.textField({
+    label: "Results Cache (seconds)",
+    name: 'cache',
+    value: settings.cache
+}) }}

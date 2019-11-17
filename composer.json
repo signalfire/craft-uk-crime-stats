@@ -29,9 +29,7 @@
   },
   "extra": {
     "handle": "craft-uk-crime-stats",
-    "name": "craft-uk-crime-stats",
-    "hasCpSettings": false,
-    "hasCpSection": false,
+    "name": "UK Crime Stats",
     "documentationUrl": "https://github.com/signalfire/craft-uk-crime-stats/blob/master/README.md",
     "class": "signalfire\\craftukcrimestats\\CraftUKCrimeStats"
   } 

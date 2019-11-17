@@ -11,6 +11,7 @@ namespace signalfire\craftukcrimestats;
 use craft\base\Plugin;
 use signalfire\craftukcrimestats\twig\CraftUKCrimeStatsTwigExtension;
 use signalfire\craftukcrimestats\services\CraftUKCrimeStatsService;
+use signalfire\craftukcrimestats\models\Settings;
 
 use Craft;
 
@@ -21,6 +22,8 @@ use Craft;
 */
 class CraftUKCrimeStats extends Plugin
 {
+    public $hasCpSettings = true;
+
     /**
      * Initialization
      * 
@@ -39,5 +42,17 @@ class CraftUKCrimeStats extends Plugin
             Craft::$app->view->registerTwigExtension($extension);
         }
 
+    }
+
+    protected function createSettingsModel()
+    {
+        return new Settings();
+    }
+
+    protected function settingsHtml()
+    {
+        return Craft::$app->getView()->renderTemplate('craft-uk-crime-stats/settings', [
+            'settings' => $this->getSettings()
+        ]);
     }
 }
